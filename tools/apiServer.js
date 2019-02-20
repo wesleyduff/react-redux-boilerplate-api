@@ -1,9 +1,7 @@
-
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const routes = require('./apiRoutes/index');
 const swaggerUi = require('swagger-ui-express');
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -12,22 +10,10 @@ app.use(bodyParser.json());
 
 const port = 3001;        // set our port
 
-
-
-
-
-
-
-// ROUTES FOR OUR API
-// =============================================================================
-const router = express.Router();              // get an instance of the express Router
+import routes from './api_routes';
 
 const swaggerJSDoc = require('swagger-jsdoc');
 
-
-// import * as routes from './apiRoutes'
-// ROUTES BASIC
-//app.get('/authors', routes.authors);
 
 // Add createdAt to all POSTS
 app.use((req, res, next) => {
@@ -38,7 +24,10 @@ app.use((req, res, next) => {
   next();
 });
 
-
+/* ---
+Set Routes
+ */
+routes.setup(app);
 
 // swagger definition
 var swaggerDefinition = {
@@ -53,7 +42,7 @@ var swaggerDefinition = {
 // options for swagger jsdoc
 var options = {
   swaggerDefinition: swaggerDefinition, // swagger definition
-  apis: ['./tools/routes.js'], // path where API specification are written
+  apis: ['./tools/api_routes.js'], // path where API specification are written
 };
 
 // initialize swaggerJSDoc
@@ -73,8 +62,6 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '../dist/index.html'))
 });
 
-routes.setup(app);
-
 
 
 // Returns a URL friendly slug
@@ -91,14 +78,6 @@ function validateCourse(course) {
   if (!course.category) return "Category is required.";
   return "";
 }
-
-// more routes for our API will happen here
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
-//app.use('/', router);
-
-
 
 // START THE SERVER
 // =============================================================================

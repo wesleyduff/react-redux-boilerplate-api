@@ -1,1 +1,1 @@
-export {default as AurthorApi } from './authorApi';
+export { default as AurthorApi } from './authorApi';

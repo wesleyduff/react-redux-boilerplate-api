@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _asyncToGenerator; });\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {\n  try {\n    var info = gen[key](arg);\n    var value = info.value;\n  } catch (error) {\n    reject(error);\n    return;\n  }\n\n  if (info.done) {\n    resolve(value);\n  } else {\n    Promise.resolve(value).then(_next, _throw);\n  }\n}\n\nfunction _asyncToGenerator(fn) {\n  return function () {\n    var self = this,\n        args = arguments;\n    return new Promise(function (resolve, reject) {\n      var gen = fn.apply(self, args);\n\n      function _next(value) {\n        asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value);\n      }\n\n      function _throw(err) {\n        asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err);\n      }\n\n      _next(undefined);\n    });\n  };\n}\n\n//# sourceURL=webpack:///./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! regenerator-runtime */ \"regenerator-runtime\");\n\n\n//# sourceURL=webpack:///./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/path-browserify/index.js":
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
@@ -108,14 +131,27 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 
 /***/ }),
 
-/***/ "./tools/apiRoutes/index.js":
-/*!**********************************!*\
-  !*** ./tools/apiRoutes/index.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/api/authorApi.js":
+/*!******************************!*\
+  !*** ./src/api/authorApi.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("/* eslint-disable import/no-unresolved */\n//import { AurthorApi } from 'api';\nmodule.exports.setup = function (router) {\n  /**\n   * @swagger\n   * /:\n   *   get:\n   *     description: Returns the homepage\n   *     responses:\n   *       200:\n   *         description: hello world\n   */\n  router.get('/', function (req, res) {\n    res.send('Hello World!');\n  });\n}; // /**\n//  * @swagger\n//  * /:\n//  *   get:\n//  *     description: Returns the homepage\n//  *     responses:\n//  *       200:\n//  *         description: hello world\n//  */\n// const authors = async (req, res) => {\n//   const response = await AurthorApi.getAllAuthors();\n//   res.json(response);\n// }\n//\n// export { authors };\n\n//# sourceURL=webpack:///./tools/apiRoutes/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst JSON = {\n  \"courses\": [{\n    \"id\": 1,\n    \"title\": \"Securing React Apps with Auth0\",\n    \"slug\": \"react-auth0-authentication-security\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 2,\n    \"title\": \"React: The Big Picture\",\n    \"slug\": \"react-big-picture\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 3,\n    \"title\": \"Creating Reusable React Components\",\n    \"slug\": \"react-creating-reusable-components\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 4,\n    \"title\": \"Building a JavaScript Development Environment\",\n    \"slug\": \"javascript-development-environment\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 5,\n    \"title\": \"Building Applications with React and Redux\",\n    \"slug\": \"react-redux-react-router-es6\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 6,\n    \"title\": \"Building Applications in React and Flux\",\n    \"slug\": \"react-flux-building-applications\",\n    \"authorId\": 1,\n    \"category\": \"JavaScript\"\n  }, {\n    \"id\": 7,\n    \"title\": \"Clean Code: Writing Code for Humans\",\n    \"slug\": \"writing-clean-code-humans\",\n    \"authorId\": 1,\n    \"category\": \"Software Practices\"\n  }, {\n    \"id\": 8,\n    \"title\": \"Architecting Applications for the Real World\",\n    \"slug\": \"architecting-applications-dotnet\",\n    \"authorId\": 1,\n    \"category\": \"Software Architecture\"\n  }, {\n    \"id\": 9,\n    \"title\": \"Becoming an Outlier: Reprogramming the Developer Mind\",\n    \"slug\": \"career-reboot-for-developer-mind\",\n    \"authorId\": 1,\n    \"category\": \"Career\"\n  }, {\n    \"id\": 10,\n    \"title\": \"Web Component Fundamentals\",\n    \"slug\": \"web-components-shadow-dom\",\n    \"authorId\": 1,\n    \"category\": \"HTML5\"\n  }],\n  \"authors\": [{\n    \"id\": 1,\n    \"name\": \"Cory House\"\n  }, {\n    \"id\": 2,\n    \"name\": \"Scott Allen\"\n  }, {\n    \"id\": 3,\n    \"name\": \"Dan Wahlin\"\n  }]\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  getAllAuthors: () => {\n    return new Promise((resolve, reject) => {\n      resolve(JSON.authors);\n    });\n  }\n});\n\n//# sourceURL=webpack:///./src/api/authorApi.js?");
+
+/***/ }),
+
+/***/ "./src/api/index.js":
+/*!**************************!*\
+  !*** ./src/api/index.js ***!
+  \**************************/
+/*! exports provided: AurthorApi */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _authorApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authorApi */ \"./src/api/authorApi.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"AurthorApi\", function() { return _authorApi__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n\n\n//# sourceURL=webpack:///./src/api/index.js?");
 
 /***/ }),
 
@@ -123,10 +159,23 @@ eval("/* eslint-disable import/no-unresolved */\n//import { AurthorApi } from 'a
 /*!****************************!*\
   !*** ./tools/apiServer.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\n\nvar app = express();\n\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\n\nvar path = __webpack_require__(/*! path */ \"./node_modules/path-browserify/index.js\");\n\nvar routes = __webpack_require__(/*! ./apiRoutes/index */ \"./tools/apiRoutes/index.js\");\n\nvar swaggerUi = __webpack_require__(/*! swagger-ui-express */ \"swagger-ui-express\"); // configure app to use bodyParser()\n// this will let us get the data from a POST\n\n\napp.use(bodyParser.urlencoded({\n  extended: true\n}));\napp.use(bodyParser.json());\nvar port = 3001; // set our port\n// ROUTES FOR OUR API\n// =============================================================================\n\nvar router = express.Router(); // get an instance of the express Router\n\nvar swaggerJSDoc = __webpack_require__(/*! swagger-jsdoc */ \"swagger-jsdoc\"); // import * as routes from './apiRoutes'\n// ROUTES BASIC\n//app.get('/authors', routes.authors);\n// Add createdAt to all POSTS\n\n\napp.use(function (req, res, next) {\n  if (req.method === \"POST\") {\n    req.body.createdAt = Date.now();\n  } // Continue to JSON Server router\n\n\n  next();\n}); // swagger definition\n\nvar swaggerDefinition = {\n  info: {\n    title: 'Node Swagger API',\n    version: '1.0.0',\n    description: 'Hello i am swagger . I am one step ahead of postman. My job is to provide API description',\n    host: 'localhost:3001'\n  }\n}; // options for swagger jsdoc\n\nvar options = {\n  swaggerDefinition: swaggerDefinition,\n  // swagger definition\n  apis: ['./tools/routes.js'] // path where API specification are written\n\n}; // initialize swaggerJSDoc\n\nvar swaggerSpec = swaggerJSDoc(options);\napp.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // route for swagger.json\n\napp.get('/swagger.json', function (req, res) {\n  res.setHeader('Content-Type', 'application/json');\n  res.send(swaggerSpec);\n});\napp.get('/', function (req, res) {\n  res.sendFile(path.join(__dirname, '../dist/index.html'));\n});\nroutes.setup(app); // Returns a URL friendly slug\n\nfunction createSlug(value) {\n  return value.replace(/[^a-z0-9_]+/gi, \"-\").replace(/^-|-$/g, \"\").toLowerCase();\n}\n\nfunction validateCourse(course) {\n  if (!course.title) return \"Title is required.\";\n  if (!course.authorId) return \"Author is required.\";\n  if (!course.category) return \"Category is required.\";\n  return \"\";\n} // more routes for our API will happen here\n// REGISTER OUR ROUTES -------------------------------\n// all of our routes will be prefixed with /api\n//app.use('/', router);\n// START THE SERVER\n// =============================================================================\n\n\napp.listen(port, function () {\n  console.log(\"JSON Server is running on port \".concat(port));\n});\nconsole.log('Magic happens on port ' + port);\n\n//# sourceURL=webpack:///./tools/apiServer.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api_routes */ \"./tools/api_routes.js\");\nvar express = __webpack_require__(/*! express */ \"express\");\n\nvar app = express();\n\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\n\nvar path = __webpack_require__(/*! path */ \"./node_modules/path-browserify/index.js\");\n\nvar swaggerUi = __webpack_require__(/*! swagger-ui-express */ \"swagger-ui-express\"); // configure app to use bodyParser()\n// this will let us get the data from a POST\n\n\napp.use(bodyParser.urlencoded({\n  extended: true\n}));\napp.use(bodyParser.json());\nvar port = 3001; // set our port\n\n\n\nvar swaggerJSDoc = __webpack_require__(/*! swagger-jsdoc */ \"swagger-jsdoc\"); // Add createdAt to all POSTS\n\n\napp.use(function (req, res, next) {\n  if (req.method === \"POST\") {\n    req.body.createdAt = Date.now();\n  } // Continue to JSON Server router\n\n\n  next();\n});\n/* ---\nSet Routes\n */\n\n_api_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"].setup(app); // swagger definition\n\nvar swaggerDefinition = {\n  info: {\n    title: 'Node Swagger API',\n    version: '1.0.0',\n    description: 'Hello i am swagger . I am one step ahead of postman. My job is to provide API description',\n    host: 'localhost:3001'\n  }\n}; // options for swagger jsdoc\n\nvar options = {\n  swaggerDefinition: swaggerDefinition,\n  // swagger definition\n  apis: ['./tools/api_routes.js'] // path where API specification are written\n\n}; // initialize swaggerJSDoc\n\nvar swaggerSpec = swaggerJSDoc(options);\napp.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // route for swagger.json\n\napp.get('/swagger.json', function (req, res) {\n  res.setHeader('Content-Type', 'application/json');\n  res.send(swaggerSpec);\n});\napp.get('/', function (req, res) {\n  res.sendFile(path.join(__dirname, '../dist/index.html'));\n}); // Returns a URL friendly slug\n\nfunction createSlug(value) {\n  return value.replace(/[^a-z0-9_]+/gi, \"-\").replace(/^-|-$/g, \"\").toLowerCase();\n}\n\nfunction validateCourse(course) {\n  if (!course.title) return \"Title is required.\";\n  if (!course.authorId) return \"Author is required.\";\n  if (!course.category) return \"Category is required.\";\n  return \"\";\n} // START THE SERVER\n// =============================================================================\n\n\napp.listen(port, function () {\n  console.log(\"JSON Server is running on port \".concat(port));\n});\nconsole.log('Magic happens on port ' + port);\n\n//# sourceURL=webpack:///./tools/apiServer.js?");
+
+/***/ }),
+
+/***/ "./tools/api_routes.js":
+/*!*****************************!*\
+  !*** ./tools/api_routes.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator */ \"./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js\");\n/* harmony import */ var _Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ \"./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js\");\n/* harmony import */ var api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! api */ \"./src/api/index.js\");\n\n\n\n/* eslint-disable import/no-unresolved */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  setup: function setup(app) {\n    /**\n     * @swagger\n     * /authors:\n     *   get:\n     *     description: Returns the a list of authors\n     *     responses:\n     *       200:\n     *         description: Returns a list of authors\n     */\n    app.get('/authors',\n    /*#__PURE__*/\n    function () {\n      var _ref = Object(_Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\n      /*#__PURE__*/\n      _Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(req, res) {\n        var getAuthors;\n        return _Users_p2824538_Documents_code_micro_service_charter_boilerplate_pluralsight_redux_starter_record_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                _context.prev = 0;\n                _context.next = 3;\n                return api__WEBPACK_IMPORTED_MODULE_2__[\"AurthorApi\"].getAllAuthors();\n\n              case 3:\n                getAuthors = _context.sent;\n                res.setHeader('Content-Type', 'application/json');\n                res.send({\n                  authors: getAuthors\n                });\n                _context.next = 12;\n                break;\n\n              case 8:\n                _context.prev = 8;\n                _context.t0 = _context[\"catch\"](0);\n                res.setHeader('Content-Type', 'application/json');\n                res.send({\n                  error: _context.t0\n                });\n\n              case 12:\n              case \"end\":\n                return _context.stop();\n            }\n          }\n        }, _callee, this, [[0, 8]]);\n      }));\n\n      return function (_x, _x2) {\n        return _ref.apply(this, arguments);\n      };\n    }());\n  }\n});\n\n//# sourceURL=webpack:///./tools/api_routes.js?");
 
 /***/ }),
 
@@ -149,6 +198,17 @@ eval("module.exports = require(\"body-parser\");\n\n//# sourceURL=webpack:///ext
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+
+/***/ }),
+
+/***/ "regenerator-runtime":
+/*!**************************************!*\
+  !*** external "regenerator-runtime" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"regenerator-runtime\");\n\n//# sourceURL=webpack:///external_%22regenerator-runtime%22?");
 
 /***/ }),
 
