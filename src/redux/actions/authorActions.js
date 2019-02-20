@@ -1,5 +1,5 @@
 import * as types from "./actionTypes";
-import * as authorApi from "../../api/authorApi";
+import fetch from 'node-fetch';
 import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 export function loadAuthorsSuccess(authors) {
@@ -9,14 +9,16 @@ export function loadAuthorsSuccess(authors) {
 export function loadAuthors() {
   return function(dispatch) {
     dispatch(beginApiCall());
-    return authorApi
-      .getAuthors()
-      .then(authors => {
-        dispatch(loadAuthorsSuccess(authors));
-      })
-      .catch(error => {
-        dispatch(apiCallError(error));
-        throw error;
-      });
+    return new Promise((resolve, reject) => {
+      fetch(process.env.API_URL + '/api/authors')
+        .then(res => res.json())
+        .then(body => {
+          console.log(body);
+          resolve(body);
+        })
+        .catch(error => {
+          reject(error)
+        })
+    });
   };
 }

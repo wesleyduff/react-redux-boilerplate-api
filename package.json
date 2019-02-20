@@ -2,10 +2,10 @@
   "name": "ps-redux",
   "description": "React and Redux Pluralsight course by Cory House",
   "scripts": {
-    "start": "run-p start:dev start:api",
+    "start": "export NODE_ENV=development&& run-p start:dev start:api",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 3000",
     "prestart:api": "node tools/createMockDb.js",
-    "start:api": "node tools/apiServer.js",
+    "start:api": "rm -rf dist && webpack --config webpack.config.server.js --mode development && node ./dist/server.js",
     "test": "jest --watch",
     "test:ci": "jest",
     "clean:build": "rimraf ./build && mkdir build",
@@ -24,7 +24,10 @@
     }
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "4.2.1",
+    "express": "^4.16.4",
+    "html-loader": "^0.5.5",
     "immer": "1.12.1",
     "prop-types": "15.6.2",
     "react": "16.8.0-alpha.1",
@@ -34,7 +37,10 @@
     "react-toastify": "4.5.2",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "reselect": "4.0.0"
+    "reselect": "4.0.0",
+    "swagger-jsdoc": "^3.2.7",
+    "swagger-ui-express": "^4.0.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",

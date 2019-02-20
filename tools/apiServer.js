@@ -1,39 +1,36 @@
-/*
-This uses json-server, but with the module approach: https://github.com/typicode/json-server#module
-Downside: You can't pass the json-server command line options.
-Instead, can override some defaults by passing a config object to jsonServer.defaults();
-You have to check the source code to set some items.
-Examples:
-Validation/Customization: https://github.com/typicode/json-server/issues/266
-Delay: https://github.com/typicode/json-server/issues/534
-ID: https://github.com/typicode/json-server/issues/613#issuecomment-325393041
-Relevant source code: https://github.com/typicode/json-server/blob/master/src/cli/run.js
-*/
 
-/* eslint-disable no-console */
-const jsonServer = require("json-server");
-const server = jsonServer.create();
-const path = require("path");
-const router = jsonServer.router(path.join(__dirname, "db.json"));
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
+const routes = require('./apiRoutes/index');
+const swaggerUi = require('swagger-ui-express');
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Can pass a limited number of options to this to override (some) defaults. See https://github.com/typicode/json-server#api
-const middlewares = jsonServer.defaults();
+const port = 3001;        // set our port
 
-// Set default middlewares (logger, static, cors and no-cache)
-server.use(middlewares);
 
-// To handle POST, PUT and PATCH you need to use a body-parser. Using JSON Server's bodyParser
-server.use(jsonServer.bodyParser);
 
-// Simulate delay on all requests
-server.use(function(req, res, next) {
-  setTimeout(next, 2000);
-});
 
-// Declaring custom routes below. Add custom routes before JSON Server router
+
+
+
+// ROUTES FOR OUR API
+// =============================================================================
+const router = express.Router();              // get an instance of the express Router
+
+const swaggerJSDoc = require('swagger-jsdoc');
+
+
+// import * as routes from './apiRoutes'
+// ROUTES BASIC
+//app.get('/authors', routes.authors);
 
 // Add createdAt to all POSTS
-server.use((req, res, next) => {
+app.use((req, res, next) => {
   if (req.method === "POST") {
     req.body.createdAt = Date.now();
   }
@@ -41,26 +38,44 @@ server.use((req, res, next) => {
   next();
 });
 
-server.post("/courses/", function(req, res, next) {
-  const error = validateCourse(req.body);
-  if (error) {
-    res.status(400).send(error);
-  } else {
-    req.body.slug = createSlug(req.body.title); // Generate a slug for new courses.
-    next();
+
+
+// swagger definition
+var swaggerDefinition = {
+  info: {
+    title: 'Node Swagger API',
+    version: '1.0.0',
+    description: 'Hello i am swagger . I am one step ahead of postman. My job is to provide API description',
+    host:'localhost:3001'
   }
+};
+
+// options for swagger jsdoc
+var options = {
+  swaggerDefinition: swaggerDefinition, // swagger definition
+  apis: ['./tools/routes.js'], // path where API specification are written
+};
+
+// initialize swaggerJSDoc
+var swaggerSpec = swaggerJSDoc(options);
+
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// route for swagger.json
+app.get('/swagger.json', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
 
-// Use default router
-server.use(router);
 
-// Start server
-const port = 3001;
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, '../dist/index.html'))
 });
 
-// Centralized logic
+routes.setup(app);
+
+
 
 // Returns a URL friendly slug
 function createSlug(value) {
@@ -76,3 +91,19 @@ function validateCourse(course) {
   if (!course.category) return "Category is required.";
   return "";
 }
+
+// more routes for our API will happen here
+
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+//app.use('/', router);
+
+
+
+// START THE SERVER
+// =============================================================================
+app.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
+});
+console.log('Magic happens on port ' + port);
+
