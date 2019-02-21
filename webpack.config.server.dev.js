@@ -1,13 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const nodeExternals = require('webpack-node-externals');
+
+process.env.NODE_ENV = "development";
+
 module.exports = {
   entry: {
     server: './tools/apiServer.js',
   },
+  devtool: "source-map",
+  mode: "development",
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, "build"),
     publicPath: '/',
     filename: '[name].js'
   },
@@ -22,9 +26,6 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.API_URL": JSON.stringify("http://localhost:3001"),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-    }),
-    new HtmlWebPackPlugin({
-      template: "src/swagger-doc/dist/index.html",
     })
   ],
   resolve: {

@@ -58,11 +58,6 @@ app.get('/swagger.json', function(req, res) {
 });
 
 
-app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, '../dist/index.html'))
-});
-
-
 
 // Returns a URL friendly slug
 function createSlug(value) {
